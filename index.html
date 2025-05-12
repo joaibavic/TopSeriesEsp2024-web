@@ -25,29 +25,29 @@
     </footer>
 
     <script>
-    fetch('https://topseriesesp2024-backend.onrender.com/series')
-        .then(res => res.json())
-        .then(data => {
-            const general = document.querySelector('#general .series-list');
-            const streaming = document.querySelector('#streaming .series-list');
-            const tv = document.querySelector('#tv .series-list');
+        fetch('https://topseriesesp2024-backend.onrender.com/series')
+            .then(res => res.json())
+            .then(data => {
+                const general = document.querySelector('#general .series-list');
+                const streaming = document.querySelector('#streaming .series-list');
+                const tv = document.querySelector('#tv .series-list');
 
-            data.forEach(serie => {
-                const card = document.createElement('div');
-                card.className = 'serie-card';
-                card.innerHTML = `
-                    <img src="${serie.imagenUrl}" alt="${serie.titulo}" />
-                    <h3>#${serie.ranking} - ${serie.titulo}</h3>
-                    <p><strong>Plataforma:</strong> ${serie.plataforma}</p>
-                    <p><strong>Género:</strong> ${serie.genero}</p>
-                    <a href="${serie.trailerUrl}" target="_blank">▶️ Ver tráiler</a>
-                `;
-                if (serie.categoria === "general") general.appendChild(card);
-                else if (serie.categoria === "streaming") streaming.appendChild(card);
-                else if (serie.categoria === "television") tv.appendChild(card);
-            });
-        })
-        .catch(error => console.error("Error al obtener las series:", error));
-</script>
+                data.forEach(serie => {
+                    const card = document.createElement('div');
+                    card.className = 'serie-card';
+                    card.innerHTML = `
+                        <img src="${serie.imagenUrl}" alt="${serie.titulo}" />
+                        <h3>#${serie.ranking} - ${serie.titulo}</h3>
+                        <p><strong>Plataforma:</strong> ${serie.plataforma}</p>
+                        <p><strong>Género:</strong> ${serie.genero}</p>
+                        <a href="${serie.trailerUrl}" target="_blank">▶️ Ver tráiler</a>
+                    `;
+                    if (serie.categoria === "general") general.appendChild(card);
+                    else if (serie.categoria === "streaming") streaming.appendChild(card);
+                    else if (serie.categoria === "television") tv.appendChild(card);
+                });
+            })
+            .catch(error => console.error("Error al obtener las series:", error));
+    </script>
 </body>
 </html>
