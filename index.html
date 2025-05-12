@@ -25,7 +25,7 @@
     </footer>
 
     <script>
-        fetch('series.json')
+        fetch('https://topseriesesp2024-api.onrender.com/series')
             .then(res => res.json())
             .then(data => {
                 const general = document.querySelector('#general .series-list');
