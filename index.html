@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TopSeriesEsp2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>TopSeriesEsp2024</h1>
+        <p>Ranking de las 30 series más vistas en España (2024)</p>
+    </header>
+
+    <main>
+        <section id="general"><h2>🎖️ Top 10 General</h2><div class="series-list"></div></section>
+        <section id="streaming"><h2>📺 Top 10 Streaming</h2><div class="series-list"></div></section>
+        <section id="tv"><h2>📡 Top 10 Televisión Abierta</h2><div class="series-list"></div></section>
+    </main>
+
+    <footer>
+        <p>© 2024 joaibavic</p>
+    </footer>
+
+    <script>
+        fetch('series.json')
+            .then(res => res.json())
+            .then(data => {
+                const general = document.querySelector('#general .series-list');
+                const streaming = document.querySelector('#streaming .series-list');
+                const tv = document.querySelector('#tv .series-list');
+
+                data.forEach(serie => {
+                    const card = document.createElement('div');
+                    card.className = 'serie-card';
+                    card.innerHTML = `
+                        <img src="${serie.imagenUrl}" alt="${serie.titulo}" />
+                        <h3>#${serie.ranking} - ${serie.titulo}</h3>
+                        <p><strong>Plataforma:</strong> ${serie.plataforma}</p>
+                        <p><strong>Género:</strong> ${serie.genero}</p>
+                        <a href="${serie.trailerUrl}" target="_blank">▶️ Ver tráiler</a>
+                    `;
+                    if (serie.categoria === "general") general.appendChild(card);
+                    else if (serie.categoria === "streaming") streaming.appendChild(card);
+                    else if (serie.categoria === "television") tv.appendChild(card);
+                });
+            });
+    </script>
+</body>
+</html>

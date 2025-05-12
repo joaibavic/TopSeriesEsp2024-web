@@ -1,0 +1,77 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #FFE5B4, #FFB6B9);
+    color: #333;
+}
+
+header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://wallpapers.com/images/featured-full/profesor-la-casa-de-papel-1yegj3ptnd8g5noc.jpg') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 4em 1em;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 1em;
+}
+
+section {
+    margin-bottom: 3em;
+    background: #fffaf5;
+    padding: 1em 2em;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.series-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+
+.serie-card {
+    background: linear-gradient(135deg, #FFEBCC, #FFB6B9);
+    border-radius: 10px;
+    padding: 1.5em;
+    width: 320px;
+    min-height: 460px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.serie-card:hover {
+    transform: scale(1.03);
+}
+
+.serie-card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+footer {
+    text-align: center;
+    background: #FFE5B4;
+    padding: 1.5em;
+    margin-top: 3em;
+}
